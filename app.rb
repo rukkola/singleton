@@ -1,19 +1,11 @@
 
-=begin
-class Logger
-  def say_som
-    puts 'hi'
-  end
-end
-
-logger = Logger.new   # Можно создавать несколько объектов
-logger.say_som
-=end
-
-class Logger
-  def self.say_som
-    puts 'hi'
-  end
-end
+require './logger'
 
 Logger.say_som  #  один объект в пямяти
+
+Logger.instance.log '111'
+Logger.instance.log '222'
+Logger.instance.log '333'
+
+logger = Logger.new
+logger.log 'Hii'
