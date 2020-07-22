@@ -1,29 +1,15 @@
-=begin
-class Logger
-  def say_som
-    puts 'hi'
-  end
-end
-
-logger = Logger.new   # Можно создавать несколько объектов
-logger.say_som
-=end
+require 'singleton'
 
 class Logger
+
+  include Singleton
 
   def initialize
     @f = File.open 'log.txt', 'a'
   end
 
-  @@x = Logger.new
-
-  def self.instance
-    return @@x
-  end
-
-  #instans method
   def log wat
     @f.puts wat
+    @f.flush
   end
-  private_class_method :new
 end
